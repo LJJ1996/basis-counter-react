@@ -18,6 +18,16 @@ class Counter extends Component {
 		console.log("enter componentDidMount : " + this.props.caption);
 	}
 
+	componentWillReceiveProps(nextProps){
+		console.log("enter componentWillReceiveProps : " + this.props.caption);
+	}
+
+	shouldComponentUpdate(nextProps , nextState){
+		return (nextProps.caption !== this.props.caption) || (nextProps.num !== this.props.num);
+	}
+
+
+
 	onIncrement = () => {
 		this.setState({
 			num : this.state.num + 1
