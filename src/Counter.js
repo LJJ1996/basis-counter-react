@@ -1,5 +1,5 @@
 import React , {Component} from 'react';
-import styles from './Counter.css'
+import './Counter.css'
 class Counter extends Component {
 	constructor(props){
 		super(props);
@@ -7,8 +7,15 @@ class Counter extends Component {
 		this.state = {
 			num:this.props.initValue || 0
 		};
-		// this.onIncrement = this.onIncrement.bind(this);
-		// this.onDecrement = this.onDecrement.bind(this);
+		console.log("enter constructor : " + this.props.caption);
+	}
+
+	componentWillMount(){
+		console.log("enter componentWillMount : " + this.props.caption);
+	}
+
+	componentDidMount(){
+		console.log("enter componentDidMount : " + this.props.caption);
 	}
 
 	onIncrement = () => {
@@ -23,20 +30,8 @@ class Counter extends Component {
 		})
 	};
 
-	// onIncrement(){
-	// 	this.setState({
-	// 		num : this.state.num + 1
-	// 	})
-	// }
-	//
-	// onDecrement(){
-	// 	this.setState({
-	// 		num : this.state.num - 1
-	// 	})
-	// }
-
-
 	render(){
+		console.log("enter render : " + this.props.caption);
 		const {caption} = this.props;
 		return (
 				<div>
